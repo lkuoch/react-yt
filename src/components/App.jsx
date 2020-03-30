@@ -25,7 +25,7 @@ class App extends Component {
     });
 
     this.setState({
-      videos: response.data.items,
+      videos: response.data.items.slice(1),
       selectedVideo: response.data.items[0],
     });
   };
