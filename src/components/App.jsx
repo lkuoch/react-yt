@@ -13,33 +13,33 @@ class App extends Component {
         isLoading: false
     };
 
-  //* Set default search term
-  componentDidMount() {
-    this.onTermSubmit("asfdkgjnngaengiaebnbnr");
-  }
+    //* Set default search term
+    componentDidMount() {
+        this.onTermSubmit("asfdkgjnngaengiaebnbnr");
+    }
 
-  //* User enters a search term
-  onTermSubmit = async term => {
-      this.setState({isLoading: true});
-    const response = await youtube.get("/search", {
-      params: {
-        q: term,
-      },
-    });
+    //* User enters a search term
+    onTermSubmit = async term => {
+        this.setState({isLoading: true});
+        const response = await youtube.get("/search", {
+            params: {
+                q: term,
+            },
+        });
 
-    this.setState({
-        videos: response.data.items.slice(1),
-        selectedVideo: response.data.items[0],
-        isLoading: false
-    });
-  };
+        this.setState({
+            videos: response.data.items.slice(1),
+            selectedVideo: response.data.items[0],
+            isLoading: false
+        });
+    };
 
-  //[(Callback)] User selected video
-  onVideoSelect = video => {
-    this.setState({
-      selectedVideo: video,
-    });
-  };
+    //[(Callback)] User selected video
+    onVideoSelect = video => {
+        this.setState({
+            selectedVideo: video,
+        });
+    };
 
     render() {
         let loadingDom = "";
