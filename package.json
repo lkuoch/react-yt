@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.9.8",
+    "@material-ui/lab": "^4.0.0-alpha.47",
+    "@material-ui/styles": "^4.9.6",
     "axios": "^0.18.0",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "npm": "^6.14.4",
+    "react": "next",
+    "react-dom": "next",
     "react-scripts": "2.1.2"
   },
   "scripts": {
