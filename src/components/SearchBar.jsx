@@ -30,9 +30,23 @@ class SearchBar extends Component {
                 <form onSubmit={this.onFormSubmit}>
                     <div className="field">
                         {/*<label htmlFor="search-bar-input">Video Search</label>*/}
-                        <input name="term" type="text" value={this.state.term}
+                        <input name="term" type="text" size="50" value={this.state.term}
                                onChange={this.handleChange}/>
-                        <button className="button" type="submit" onClick={this.onFormSubmit}>Search</button>
+                        <button className="button" type="submit" size="50" onClick={this.onFormSubmit}>Search</button>
+                        <select
+                            name="order"
+                            value={this.state.order}
+                            onChange={this.handleChange}
+                            className="select"
+                        >
+                            <option value="">None</option>
+                            <option value="relevance">Relevance</option>
+                            <option value="date">Date</option>
+                            <option value="rating">Rating</option>
+                            <option value="title">Title</option>
+                            <option value="videoCount">Video Count</option>
+                            <option value="viewCount">View Count</option>
+                        </select>
                     </div>
                 </form>
             </div>
