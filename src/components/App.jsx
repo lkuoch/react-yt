@@ -4,6 +4,7 @@ import {Backdrop, CircularProgress} from "@material-ui/core";
 import youtube from "../api/youtube.js";
 import SearchBar from "./SearchBar";
 import VideoModule from "./videos/VideoModule";
+import Header from "../Header";
 
 class App extends Component {
     //* App state
@@ -48,10 +49,14 @@ class App extends Component {
         }
 
         return (
-            <div className="app ui container">
+            <div>
                 {loadingDom}
+                <Header/>
+                {/*<div className="fixed-header">*/}
+                {/*    <a href="http://localhost:3000" className ="logo"><img src="https://pmcdeadline2.files.wordpress.com/2019/06/you-tube-new-logo.jpg?w=681&h=383&crop=1" width="100" height="45" alt="#"/></a></div>*/}
                 <SearchBar onTermSubmit={this.onTermSubmit}/>
                 <VideoModule appState={this.state} onVideoSelect={this.onVideoSelect}/>
+
             </div>
         );
     }

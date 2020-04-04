@@ -1,3 +1,44 @@
 .search-bar {
   margin-top: 1rem !important;
+  //align-items:left;
 }
+.field{
+  //width: 100px;
+  top:5px;
+  left: 500px;
+  position: relative;
+  width: 600px;
+  //padding: 12px 20px;
+  //margin: 8px 0;
+  box-sizing: border-box;
+  align-items: center;
+}
+.button {
+  background-color: #ffffff;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  top:5px;
+  left: 600px;
+}
+.fixed-header{
+  width: 100%;
+  position: fixed;
+  background: #000000;
+  //padding: 10px 0;
+  color: #ffffff;
+  align: left;
+}
+.fixed-header{
+  top: 0;
+}
+//.header a.logo {
+//  font-size: 25px;
+//  font-weight: bold;
+//}
