@@ -1,3 +1,52 @@
 .search-bar {
   margin-top: 1rem !important;
+  //align-items:left;
+}
+.field{
+  top:5px;
+  left: 500px;
+  position: relative;
+  //width: 2000px;
+  //height: 500;
+  height:7.5%;
+  padding: 10px 50px;
+  //margin: 8px 10;
+  //padding: 6px 500px;
+  //box-sizing: border-box;
+  align-items: center;
+}
+.button {
+  background-color: #ffffff;
+  border: white;
+  color: black;
+  //padding: 10px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  cursor: pointer;
+  top:5px;
+  left: 900px;
+  //height: 2%;
+  //height:7.5%;
+}
+.fixed-header{
+  width: 100%;
+  position: fixed;
+  background: #000000;
+  padding: 10px 0;
+  color: #ffffff;
+  align: left;
+  height:6.3%;
+}
+.fixed-header{
+  top: 0;
+}
+//.header a.logo {
+//  font-size: 25px;
+//  font-weight: bold;
+//}
+.select{
+
 }

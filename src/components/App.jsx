@@ -1,50 +1,65 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
+import {Backdrop, CircularProgress} from "@material-ui/core";
 
 import youtube from "../api/youtube.js";
 import SearchBar from "./SearchBar";
 import VideoModule from "./videos/VideoModule";
+import Header from "../Header";
 
 class App extends Component {
-  //* App state
-  state = {
-    videos: [],
-    selectedVideo: null,
-  };
+    //* App state
+    state = {
+        videos: [],
+        selectedVideo: null,
+        isLoading: false
+    };
 
-  //* Set default search term
-  componentDidMount() {
-    this.onTermSubmit("cats");
-  }
+    //* Set default search term
+    componentDidMount() {
+        this.onTermSubmit("asfdkgjnngaengiaebnbnr");
+    }
 
-  //* User enters a search term
-  onTermSubmit = async term => {
-    const response = await youtube.get("/search", {
-      params: {
-        q: term,
-      },
-    });
+    //* User enters a search term
+    onTermSubmit = async term => {
+        this.setState({isLoading: true});
+        const response = await youtube.get("/search", {
+            params: {
+                q: term,
+            },
+        });
 
-    this.setState({
-      videos: response.data.items,
-      selectedVideo: response.data.items[0],
-    });
-  };
+        this.setState({
+            videos: response.data.items.slice(1),
+            selectedVideo: response.data.items[0],
+            isLoading: false
+        });
+    };
 
-  //[(Callback)] User selected video
-  onVideoSelect = video => {
-    this.setState({
-      selectedVideo: video,
-    });
-  };
+    //[(Callback)] User selected video
+    onVideoSelect = video => {
+        this.setState({
+            selectedVideo: video,
+        });
+    };
 
-  render() {
-    return (
-      <div className="app ui container">
-        <SearchBar onTermSubmit={this.onTermSubmit} />
-        <VideoModule appState={this.state} onVideoSelect={this.onVideoSelect} />
-      </div>
-    );
-  }
+    render() {
+        let loadingDom = "";
+        if (this.state.isLoading) {
+            loadingDom = <Backdrop open={!this.state.isLoading}><CircularProgress color="inherit"/></Backdrop>
+        }
+
+        return (
+            <div>
+                {loadingDom}
+                <Header/>
+                {/*<div className="fixed-header">*/}
+                {/*    <a href="http://localhost:3000" className ="logo"><img src="https://pmcdeadline2.files.wordpress.com/2019/06/you-tube-new-logo.jpg?w=681&h=383&crop=1" width="100" height="45" alt="#"/></a></div>*/}
+                <SearchBar onTermSubmit={this.onTermSubmit}/>
+                <VideoModule appState={this.state} onVideoSelect={this.onVideoSelect}/>
+
+            </div>
+        );
+    }
 }
 
 export default App;
